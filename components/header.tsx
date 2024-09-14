@@ -7,13 +7,14 @@ import {
 } from '@clerk/nextjs';
 import { Outfit } from 'next/font/google';
 import { Button } from './ui/button';
+import HeaderMenu from './header-menu';
 
 const dmSans = Outfit({ subsets: ['latin'] });
 
 export default function Header() {
   return (
     <header className='sticky inset-x-0 top-0 z-30 w-full transition-all'>
-      <div className='w-full max-w-screen-xl px-6 lg:px-20 relative mx-auto border-b border-none py-2'>
+      <div className='w-full max-w-screen-xl px-6 lg:px-20 relative mx-auto border-b border-none py-4'>
         <div className='flex h-14 items-center justify-between'>
           <h1
             className={` ${dmSans.className} text-4xl font-bold tracking-tight`}
@@ -30,6 +31,7 @@ export default function Header() {
               </SignUpButton>
             </SignedOut>
             <SignedIn>
+              <HeaderMenu />
               <UserButton />
             </SignedIn>
           </div>
